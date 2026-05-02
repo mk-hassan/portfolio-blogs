@@ -1,13 +1,88 @@
 // @ts-ignore
 import clipboardScript from "./scripts/clipboard.inline"
+// @ts-ignore
+import sunlitScript from "./scripts/sunlit.inline"
 import clipboardStyle from "./styles/clipboard.scss"
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 
 const Body: QuartzComponent = ({ children }: QuartzComponentProps) => {
-  return <div id="quartz-body">{children}</div>
+  return (
+    <>
+      <div id="dappled-light">
+        <div id="glow"></div>
+        <div id="glow-bounce"></div>
+        <div class="perspective">
+          <div id="leaves">
+            <svg style="width: 0; height: 0; position: absolute;">
+              <defs>
+                <filter id="wind" x="-20%" y="-20%" width="140%" height="140%">
+                  <feTurbulence type="fractalNoise" numOctaves="2" seed="1">
+                    <animate
+                      attributeName="baseFrequency"
+                      dur="16s"
+                      keyTimes="0;0.33;0.66;1"
+                      values="0.005 0.003;0.01 0.009;0.008 0.004;0.005 0.003"
+                      repeatCount="indefinite"
+                    />
+                  </feTurbulence>
+                  <feDisplacementMap in="SourceGraphic">
+                    <animate
+                      attributeName="scale"
+                      dur="20s"
+                      keyTimes="0;0.25;0.5;0.75;1"
+                      values="45;55;75;55;45"
+                      repeatCount="indefinite"
+                    />
+                  </feDisplacementMap>
+                </filter>
+              </defs>
+            </svg>
+          </div>
+          <div id="blinds">
+            <div class="shutters">
+              <div class="shutter"></div>
+              <div class="shutter"></div>
+              <div class="shutter"></div>
+              <div class="shutter"></div>
+              <div class="shutter"></div>
+              <div class="shutter"></div>
+              <div class="shutter"></div>
+              <div class="shutter"></div>
+              <div class="shutter"></div>
+              <div class="shutter"></div>
+              <div class="shutter"></div>
+              <div class="shutter"></div>
+              <div class="shutter"></div>
+              <div class="shutter"></div>
+              <div class="shutter"></div>
+              <div class="shutter"></div>
+              <div class="shutter"></div>
+              <div class="shutter"></div>
+              <div class="shutter"></div>
+              <div class="shutter"></div>
+              <div class="shutter"></div>
+              <div class="shutter"></div>
+              <div class="shutter"></div>
+            </div>
+            <div class="vertical">
+              <div class="bar"></div>
+              <div class="bar"></div>
+            </div>
+          </div>
+        </div>
+        <div id="progressive-blur">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+      <div id="quartz-body">{children}</div>
+    </>
+  )
 }
 
-Body.afterDOMLoaded = clipboardScript
+Body.afterDOMLoaded = clipboardScript + sunlitScript
 Body.css = clipboardStyle
 
 export default (() => Body) satisfies QuartzComponentConstructor

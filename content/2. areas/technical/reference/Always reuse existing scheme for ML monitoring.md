@@ -1,0 +1,1 @@
+Reusing the existing monitoring architecture for ML models can save time and resources as you don't need to build a new monitoring system from scratch. You can start by adding a couple of dashboards and expand to a more sophisticated system later.
