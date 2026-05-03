@@ -13,7 +13,7 @@ body {
   --shadow: #1a1917;
   --bounce-light: #f5d7a6;
   --timing-fn: cubic-bezier(0.455, 0.19, 0, 0.985);
-  transition: background-color 1s var(--timing-fn);
+  /* background transition is handled by #dappled-light, not body */
 }
 
 :root[saved-theme="dark"] body {
@@ -29,6 +29,7 @@ body {
   height: 100vh;
   width: 100vw;
   z-index: 0;
+  will-change: contents;
 }
 
 #quartz-body {
@@ -36,6 +37,7 @@ body {
   z-index: 1;
 }
 
+/* Progressive blur is very GPU-heavy. Reduce to 2 layers and lower blur values. */
 #progressive-blur {
   position: absolute;
   height: 100%;
@@ -58,27 +60,21 @@ body {
 }
 
 #progressive-blur > div:nth-child(1) {
-  --blur-amount: 6px;
+  --blur-amount: 8px;
   --stop1: 0%;
   --stop2: 0%;
 }
 
 #progressive-blur > div:nth-child(2) {
-  --blur-amount: 12px;
-  --stop1: 40%;
-  --stop2: 80%;
+  --blur-amount: 32px;
+  --stop1: 50%;
+  --stop2: 75%;
 }
 
-#progressive-blur > div:nth-child(3) {
-  --blur-amount: 48px;
-  --stop1: 40%;
-  --stop2: 70%;
-}
-
+/* hide the two heaviest blur layers */
+#progressive-blur > div:nth-child(3),
 #progressive-blur > div:nth-child(4) {
-  --blur-amount: 96px;
-  --stop1: 70%;
-  --stop2: 80%;
+  display: none;
 }
 
 #glow {
@@ -111,6 +107,7 @@ body {
   background-blend-mode: darken;
   transform-origin: top right;
   transform-style: preserve-3d;
+  will-change: transform, opacity;
   transform: matrix3d(
     0.75, -0.0625, 0, 0.0008,
     0, 1, 0, 0,
@@ -140,6 +137,7 @@ body {
   background-image: url("/static/leaves.png");
   filter: url(#wind);
   animation: billow 8s ease-in-out infinite;
+  will-change: transform;
 }
 
 #blinds {
