@@ -10,12 +10,10 @@ private/
 .replit
 replit.nix
 
-
-# Ignore all directories in content except for subdirectory resources
-# content/*/
-# !content/*areas/
-# content/*areas/Interview
-# !content/assets
-
+# High sensitivity files
 .credentials.md
 .secrets.md
+
+# Privates
+todos/
+

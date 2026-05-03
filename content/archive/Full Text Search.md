@@ -5,7 +5,7 @@ tags:
 type: fleeting
 date: 30-04-2025
 destination: "[[2. areas/technical/Full Text Search|Full Text Search]]"
-result note: quick note for Amr Elhelw video on the topic
+# result note: quick note for Amr Elhelw video on the topic
 ---
 Tokenization --> stop words removal --> steaming (normalization) (return words to their origins) --> indexing (inverted index)\
 
