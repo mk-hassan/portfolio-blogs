@@ -1,3 +1,7 @@
+---
+title: Kamal's notes
+---
+
 ![[banner.svg]]
 **Software Engineer & Web Developer**
 
