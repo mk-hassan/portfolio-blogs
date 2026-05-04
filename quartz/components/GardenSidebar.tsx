@@ -154,7 +154,7 @@ export default (() => {
           return (
             <div class="garden-section">
               <h3 class="section-title">
-                <a href={resolveRelative(fileData.slug!, `${folder}/index` as FullSlug)} class="internal">Recent {title}</a>
+                <a href={resolveRelative(fileData.slug!, `${folder}/index` as FullSlug)} class="internal">{title}</a>
               </h3>
               <ul>
                 {visible.map((page) => {
