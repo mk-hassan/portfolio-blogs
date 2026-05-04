@@ -47,12 +47,13 @@ export const defaultContentPageLayout: PageLayout = {
         // { Component: Component.ReaderMode() },
       ],
     }),
-    Component.GardenSidebar(),
+    Component.DesktopOnly(Component.GardenSidebar()),
   ],
   right: [
-    Component.Graph(),
+    Component.DesktopOnly(Component.Graph()),
     Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
+    Component.MobileOnly(Component.GardenSidebar()),
   ],
 }
 
@@ -71,7 +72,9 @@ export const defaultListPageLayout: PageLayout = {
         { Component: Component.Darkmode() },
       ],
     }),
-    Component.GardenSidebar(),
+    Component.DesktopOnly(Component.GardenSidebar()),
   ],
-  right: [],
+  right: [
+    Component.MobileOnly(Component.GardenSidebar()),
+  ],
 }
