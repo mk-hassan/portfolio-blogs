@@ -1,7 +1,3 @@
----
-title: Mahmoud Kamal
----
-
 ![[banner.svg]]
 **Software Engineer & Web Developer**
 

@@ -1,0 +1,118 @@
+.garden-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+  padding-bottom: 2rem;
+
+  .garden-section {
+    h3.section-title {
+      font-family: var(--headerFont);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin: 0 0 0.75rem 0;
+
+      a {
+        color: inherit;
+        background: none;
+        text-decoration: none;
+
+        &::after {
+          content: " ›";
+          font-size: 1.1em;
+          color: var(--secondary);
+          opacity: 0;
+          transition: opacity 0.15s ease, transform 0.15s ease;
+          display: inline-block;
+          transform: translateX(-4px);
+        }
+
+        &:hover::after {
+          opacity: 1;
+          transform: translateX(2px);
+        }
+      }
+    }
+
+    .sub-section {
+      margin-bottom: 0.75rem;
+
+      h4.sub-title {
+        font-family: var(--headerFont);
+        font-size: 0.82rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--gray);
+        margin: 0 0 0.3rem 0;
+
+        a {
+          color: inherit;
+          background: none;
+          text-decoration: none;
+
+          &:hover {
+            color: var(--secondary);
+          }
+        }
+      }
+
+      ul {
+        padding-left: 0.75rem;
+        border-left: 2px solid var(--lightgray);
+      }
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    li.garden-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+
+      a.item-title {
+        font-size: 1rem;
+        font-weight: 400;
+        color: var(--secondary);
+        text-decoration: none;
+        background: none;
+        line-height: 1.3;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      p.item-date {
+        font-size: 0.85rem;
+        font-style: italic;
+        color: var(--gray);
+        margin: 0;
+      }
+    }
+
+    a.see-more {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--secondary);
+      margin-top: 0.75rem;
+      text-decoration: none;
+      background: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
