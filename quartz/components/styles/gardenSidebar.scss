@@ -1,3 +1,5 @@
+@use "../../styles/variables.scss" as *;
+
 .garden-sidebar {
   display: flex;
   flex-direction: column;
@@ -6,6 +8,10 @@
   overflow-y: auto;
   min-height: 0;
   padding-bottom: 2rem;
+
+  @media all and ($mobile) {
+    display: none;
+  }
 
   .garden-section {
     h3.section-title {
